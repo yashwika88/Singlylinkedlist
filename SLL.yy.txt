@@ -1,0 +1,55 @@
+import java.util.*;
+class Node{
+    int data;
+    Node next;
+    Node(int num){
+        this.data=num;
+        this.next=null;
+    }
+}
+public class SLL{
+
+    static void reversePrint(Node head){
+        if(head==null){
+            return;
+        }
+        else{
+            reversePrint(head.next);
+        }
+        System.out.print(head.data + " ");
+    }
+    static Node push(Node head,int data){
+        Node newnode=new Node(data);
+        newnode.next=head;
+        head=newnode;
+        
+        return head;
+    }
+    
+    static int printList(Node head){
+        int i=0;
+        Node temp=head;
+        while(temp!=null){
+            System.out.print(temp.data + " ");
+            temp=temp.next;
+            i++;
+        }
+        return i;
+    }
+    
+    public static void main(String args[]){
+          
+         Node head=null;
+        head=push(head,1);
+        head=push(head,2);
+         head=push(head,3);
+          head=push(head,4);
+          System.out.println("Given linked list");
+          int n=printList(head);
+          System.out.println("\nreversed linked list: ");
+          reversePrint(head);
+          System.out.println();
+
+
+    }
+}
